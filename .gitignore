@@ -1,2 +1,4 @@
 tmp/
 .vscode/
+keys
+mosquitto.pw

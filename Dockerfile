@@ -73,9 +73,9 @@ RUN apk --no-cache add --virtual buildDeps git cmake build-base openssl-dev c-ar
     sed -i "s/BACKEND_POSTGRES ?= no/BACKEND_POSTGRES ?= yes/" config.mk && \
     sed -i "s/BACKEND_LDAP ?= no/BACKEND_LDAP ?= no/" config.mk && \
     sed -i "s/BACKEND_HTTP ?= no/BACKEND_HTTP ?= yes/" config.mk && \
-    sed -i "s/BACKEND_JWT ?= no/BACKEND_JWT ?= no/" config.mk && \
+    sed -i "s/BACKEND_JWT ?= no/BACKEND_JWT ?= yes/" config.mk && \
     sed -i "s/BACKEND_MONGO ?= no/BACKEND_MONGO ?= no/" config.mk && \
-    sed -i "s/BACKEND_FILES ?= no/BACKEND_FILES ?= no/" config.mk && \
+    sed -i "s/BACKEND_FILES ?= no/BACKEND_FILES ?= yes/" config.mk && \
     sed -i "s/BACKEND_MEMCACHED ?= no/BACKEND_MEMCACHED ?= no/" config.mk && \
     sed -i "s/MOSQUITTO_SRC =/MOSQUITTO_SRC = ..\//" config.mk && \
     make -j "$(nproc)" && \
