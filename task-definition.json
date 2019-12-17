@@ -1,0 +1,52 @@
+{
+    "containerDefinitions": [
+      {
+        "entryPoint": [
+          "/run.sh"
+        ],
+        "portMappings": [
+          {
+            "hostPort": 8883,
+            "protocol": "tcp",
+            "containerPort": 8883
+          },
+          {
+            "hostPort": 8083,
+            "protocol": "tcp",
+            "containerPort": 8083
+          }
+        ],
+        "command": [
+          "mosquitto"
+        ],
+        "cpu": 128,
+        "mountPoints": [
+            {
+                "containerPath": "/mosquitto",
+                "sourceVolume": "mosquitto-efs"
+            }
+        ],
+        "workingDirectory": "/",
+        "memory": 300,
+        "image": "667730253213.dkr.ecr.us-east-1.amazonaws.com/farmshelf/mosquitto:latest",
+        "essential": true,
+        "name": "mosquitto-broker"
+      }
+    ],
+    "family": "mosquitto-broker-2",
+    "volumes": [
+        {
+            "name": "mosquitto-efs",
+            "dockerVolumeConfiguration": {
+                "autoprovision": true,
+                "scope": "shared",
+                "driver": "local",
+                "driverOpts": {
+                    "type": "nfs",
+                    "device": ":/mosquitto/staging",
+                    "o": "addr=fs-14d08995.efs.us-east-1.amazonaws.com,nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport"
+                }
+            }
+        }
+    ]
+}

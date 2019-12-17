@@ -7,7 +7,7 @@ if [ "$1" = 'mosquitto' ]; then
 	#if [ -z "$(ls -A "$PGDATA")" ]; then
 	#fi
 
-	exec /usr/local/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+	exec /usr/local/sbin/mosquitto -c /mosquitto/mosquitto.conf
 fi
 
 exec "$@"

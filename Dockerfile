@@ -15,8 +15,8 @@ LABEL maintainer="Joan Llopis <jllopisg@gmail.com>" \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
 
-EXPOSE 1883
-EXPOSE 9883
+EXPOSE 8883
+EXPOSE 8083
 
 VOLUME ["/var/lib/mosquitto", "/etc/mosquitto", "/etc/mosquitto.d"]
 
