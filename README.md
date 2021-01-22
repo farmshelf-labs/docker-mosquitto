@@ -1,6 +1,16 @@
 docker-mosquitto
 ================
 
+**Farmshelf note**
+
+This repo is used to build a dockerized mosquitto server that runs on AWS ECS and authenticates against Farmcloud with the following credentials:
+
+user: "unit-{FSID}"
+
+pw:   "{unit auth key}"
+
+As of 2020, this has only been deployed on the acceptance environment, but should be strongly considered for production use. This would require ensuring all units are switched over to the new MQTT login type in `farmware/config/config.yml` with the value `mqtt.login` as `true`, and that the value of `mqtt.host` is equal to the new host.
+
 [![Docker Pulls](https://img.shields.io/docker/pulls/jllopis/mosquitto.svg)](https://cloud.docker.com/u/jllopis/repository/docker/jllopis/mosquitto)
 [![Docker Stars](https://img.shields.io/docker/stars/jllopis/mosquitto.svg)](https://cloud.docker.com/u/jllopis/repository/docker/jllopis/mosquitto)
 [![Docker Build Status](https://img.shields.io/docker/build/jllopis/mosquitto.svg)](https://cloud.docker.com/u/jllopis/repository/docker/jllopis/mosquitto)
